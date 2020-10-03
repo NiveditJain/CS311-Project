@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# pyhcarm
+.idea/
+
 # C extensions
 *.so
 
@@ -128,8 +131,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# migrations folder
-/migrations/
-
-#py-charm folder
-.idea/
+# music files folder
+/music

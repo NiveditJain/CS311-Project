@@ -1,1 +1,1 @@
-# CS311-Project
+# µZik Democratic Party Music Contol 

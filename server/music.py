@@ -1,5 +1,3 @@
-import os
-
 class Music:
 
     def __init__(self):
@@ -12,4 +10,3 @@ class Music:
         if self.name is None:
             return 'Upload Not Yet Done'
         return self.name
-    

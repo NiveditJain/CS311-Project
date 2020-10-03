@@ -12,11 +12,4 @@ class Music:
         if self.name is None:
             return 'Upload Not Yet Done'
         return self.name
-
-
-class PlayList:
-
-    def __init__(self):
-        self.songs = []
-
-    def add(self, song):
+    

@@ -20,7 +20,7 @@ EXCHANGE_SIZE = 1024
 # file storage folder
 STORAGE = os.path.join(Path(__file__).resolve().parent, 'music')
 
-# Upvote Downvote Value
+# Upvote Value
 UPVOTE_VALUE = 1
 
 # DOWNVOTE_VALUE

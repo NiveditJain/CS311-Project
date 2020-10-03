@@ -5,14 +5,13 @@ TOTAL_OBJECTS = 0
 
 
 class Music:
-    def __init__(self):
+    def __init__(self, filename, name):
         global TOTAL_OBJECTS
         TOTAL_OBJECTS = TOTAL_OBJECTS + 1
-        self.uploadCompleted = False
         self.id = TOTAL_OBJECTS
         self.votes = []
-        self.filename = None
-        self.name = None
+        self.filename = filename
+        self.name = name
 
     def __str__(self):
         if self.name is None:
@@ -29,9 +28,6 @@ class Music:
         if type(vote) is not Vote:
             raise Exception('you can pass only Vote Objects')
         self.votes.append(vote)
-
-    def is_valid(self):
-        return self.uploadCompleted
 
 
 class Vote:
@@ -54,24 +50,21 @@ class Vote:
 
 class Playlist:
 
-    def __int__(self):
-        self.count = 0
-        self.list = []
-        self.playing = None
+    music_objs = []
+    playing = None
 
     def get_next(self):
         highest_voted = None
 
-        for music in self.list:
-            if music.is_valid:
-                if highest_voted is None:
+        for music in self.music_objs:
+            if highest_voted is None:
+                highest_voted = music
+            else:
+                if highest_voted.get_value() < music.get_value():
                     highest_voted = music
-                else:
-                    if highest_voted.get_value() < music.get_value():
-                        highest_voted = music
 
         if highest_voted is not None:
-            self.list.remove(highest_voted)
+            self.music_objs.remove(highest_voted)
             self.playing = highest_voted
             return os.path.join(settings.STORAGE, highest_voted.filename)
 
@@ -79,10 +72,7 @@ class Playlist:
         if type(music) is not Music:
             raise Exception('PlayList only accept Music Elements')
 
-        if not music.is_valid():
-            raise Exception('Added Music is not Valid')
-
-        self.list.append(music)
+        self.music_objs = self.music_objs + [music]
 
     def clean_music(self):
         os.remove(os.path.join(settings.STORAGE, self.playing.filename))

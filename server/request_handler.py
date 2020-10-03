@@ -1,9 +1,19 @@
-import socket
 import flags
 import settings
 import time
 import os
 import music
+import threading
+
+# def play():
+#     while True:
+#         temp = music.playlist.get_next()
+#         if temp is not None:
+#             print(temp)
+#             playsound(temp)
+#
+# thread = threading.Thread(target=play)
+# thread.start()
 
 def object_create(connection, address):
     print(f'started object creation from {address}')
@@ -14,7 +24,8 @@ def object_create(connection, address):
     file_name = connection.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip()
     print(f'file name received {file_name} from {address}')
 
-    music_file = open(os.path.join(settings.STORAGE, file_name.split('.')[0]+'_'+str(int(time.time())%10000)+'.'+file_name.split('.')[1]), "wb")
+    file_name = file_name.split('.')[0]+'_'+str(int(time.time())%10000)+'.'+file_name.split('.')[1]
+    music_file = open(os.path.join(settings.STORAGE, file_name), "wb")
     print(f'file ({file_name}) download started from {address}')
 
     data = connection.recv(settings.EXCHANGE_SIZE)
@@ -34,6 +45,12 @@ def gate_way(connection, address):
 
     if flag == flags.CREATE_OBJ:
         object_create(connection, address)
+
+    elif flag == flags.CREATE_UPVOTE:
+        pass
+
+    elif flag == flags.CREATE_DOWNVOTE:
+        pass
 
     elif flag == flags.DISCONNECT:
         pass

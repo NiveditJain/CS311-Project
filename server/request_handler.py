@@ -1,19 +1,25 @@
 import flags
 import settings
 import time
-import os
 import music
+from playsound import playsound
 import threading
+import os
 
-# def play():
-#     while True:
-#         temp = music.playlist.get_next()
-#         if temp is not None:
-#             print(temp)
-#             playsound(temp)
-#
-# thread = threading.Thread(target=play)
-# thread.start()
+
+def start_music_player():
+    while True:
+        music_obj = music.playlist.get_next()
+        if music_obj is not None:
+            path = os.path.join(settings.STORAGE, music_obj.filename)
+            print(f'Playing... {music_obj.name} from {path}')
+            playsound(path)
+            music.playlist.clean_music()
+
+
+thread = threading.Thread(target=start_music_player)
+thread.start()
+
 
 def object_create(connection, address):
     print(f'started object creation from {address}')
@@ -38,6 +44,10 @@ def object_create(connection, address):
     music.playlist.add_music(music_obj)
     print(f'music object with id: {music_obj.id} created success from {address}')
 
+# type = 1 for upvote
+# type = -1 for downvote
+def handle_votes(connection, address, type):
+    pass:
 
 def gate_way(connection, address):
     flag = connection.recv(flags.SIZE)

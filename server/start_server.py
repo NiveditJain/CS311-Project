@@ -32,4 +32,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         thread = threading.Thread(target=request_handler.gate_way, args=(connection, address))
         print(f'Starting Connection with {address}')
         thread.start()
-        print(f'active connections = {threading.activeCount() - 1}')
+        print(f'active connections = {threading.activeCount() - 2}')

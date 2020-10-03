@@ -66,7 +66,8 @@ class Playlist:
         if highest_voted is not None:
             self.music_objs.remove(highest_voted)
             self.playing = highest_voted
-            return os.path.join(settings.STORAGE, highest_voted.filename)
+
+        return highest_voted
 
     def add_music(self, music):
         if type(music) is not Music:

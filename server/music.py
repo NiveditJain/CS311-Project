@@ -3,6 +3,7 @@ import os
 
 TOTAL_OBJECTS = 0
 
+
 class Music:
     def __init__(self):
         global TOTAL_OBJECTS
@@ -86,5 +87,6 @@ class Playlist:
     def clean_music(self):
         os.remove(os.path.join(settings.STORAGE, self.playing.filename))
         self.playing = None
+
 
 playlist = Playlist()

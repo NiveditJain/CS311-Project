@@ -32,12 +32,6 @@ if settings.MAX_FILE_SIZE < 0:
 if settings.MAX_FILE_SIZE < 1048576:
     warnings.warn('settings.MAX_FILE_SIZE must be too less for files!')
 
-if type(settings.CHUNK_SIZE) is not int:
-    raise Exception('settings.CHUNK_SIZE must be an integer')
-
-if settings.CHUNK_SIZE < 0:
-    raise Exception('settings.CHUNK_SIZE must be positive')
-
 if type(settings.EXCHANGE_SIZE) is not int:
     raise Exception('settings.EXCHANGE_SIZE must be an integer')
 

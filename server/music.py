@@ -5,11 +5,13 @@ TOTAL_OBJECTS = 0
 
 
 class Music:
+
+    votes = []
+
     def __init__(self, filename, name):
         global TOTAL_OBJECTS
         TOTAL_OBJECTS = TOTAL_OBJECTS + 1
         self.id = TOTAL_OBJECTS
-        self.votes = []
         self.filename = filename
         self.name = name
 
@@ -25,27 +27,19 @@ class Music:
         return value
 
     def add_vote(self, vote):
-        if type(vote) is not Vote:
-            raise Exception('you can pass only Vote Objects')
-        self.votes.append(vote)
+        self.votes = self.votes + [vote]
 
 
 class Vote:
 
-    def __int__(self, upvote=False, downvote=False):
+    def __int__(self, upvote=True):
         self.upvote = upvote
-        self.downvote = downvote
-
-    def is_valid(self):
-        return self.upvote ^ self.downvote
 
     def value(self):
-        if self.is_valid():
-            if self.upvote:
-                return settings.UVOTE_VALUE
-            else:
-                return settings.DOWNVOTE_VALUE
-        return 0
+        if self.upvote:
+            return settings.UVOTE_VALUE
+        else:
+            return -settings.DOWNVOTE_VALUE
 
 
 class Playlist:
@@ -70,9 +64,6 @@ class Playlist:
         return highest_voted
 
     def add_music(self, music):
-        if type(music) is not Music:
-            raise Exception('PlayList only accept Music Elements')
-
         self.music_objs = self.music_objs + [music]
 
     def clean_music(self):

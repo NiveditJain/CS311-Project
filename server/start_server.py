@@ -18,12 +18,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind(ADDR)
         server.listen()
 
-        print('server successfully stated at {}:{}!'.format(HOST, settings.PORT))
+        print('server successfully started at {}:{}!'.format(HOST, settings.PORT))
         print('Please disallow for Private Network Firewall (will be prompted), ignore is already disallowed!')
 
     except:
         raise Exception(
-            'could not start server, this could be some issue with your proxy settings or firewall settings')
+            'could not start server, this could be some issue with your proxy settings or firewall settings or some other app is using this PORT!')
 
     # making server running continuously
     while True:

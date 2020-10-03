@@ -47,4 +47,7 @@ if settings.EXCHANGE_SIZE < 0:
 if type(settings.STORAGE) is not str:
     raise Exception('settings.STORAGE must be a string')
 
+if type(settings.UPVOTE_VALUE) is not int and type(settings.DOWNVOTE_VALUE) is not int:
+    raise Exception('settings.UPVOTE_VALUE and settings.DOWNVOTE_VALUE must be integer')
+
 print('All SETTINGS Checked!')

@@ -35,3 +35,6 @@ if type(settings.EXCHANGE_SIZE) is not int:
 
 if settings.EXCHANGE_SIZE < 0:
     raise Exception('settings.EXCHANGE_SIZE must be positive')
+
+if type(settings.STORAGE) is not str:
+    raise Exception('settings.STORAGE must be a string')

@@ -1,6 +1,7 @@
 import runchecks
 import client_functions
 import argparse
+import setup
 
 
 parser = argparse.ArgumentParser(
@@ -16,7 +17,7 @@ parser.add_argument('-op', '--operation',
                     action='store',
                     help='selects the operation to perform')
 
-parser.add_argument('-id', type=int, required=False,
+parser.add_argument('-id', '--id', type=int, required=False,
                     help='to select the id to vote for')
 
 parser.add_argument('-l', '--listen', required=False,
@@ -55,31 +56,38 @@ elif args.operation == 'playing':
 
 
 elif args.operation == 'upvote':
-    if id is None:
+
+    if args.id is None:
         print('You must select the music id, select -id to set id')
 
     else:
         if args.listen:
-            client_functions.listen(id)
+            if client_functions.listen(args.id):
 
-        confirmation = input('confirm upvote [Y/N]?')
+                confirmation = input('confirm upvote [Y/N]?')
 
-        if confirmation == 'Y' or confirmation == 'y':
-            client_functions.upvote(id)
+                if confirmation == 'Y' or confirmation == 'y':
+                    client_functions.create_upvote(args.id)
+
+        else:
+            client_functions.create_upvote(args.id)
 
 
-elif args.opertation == 'downvote':
-    if id is None:
+elif args.operation == 'downvote':
+    if args.id is None:
         print('You must select the music id, select -id to set id')
 
     else:
         if args.listen:
-            client_functions.listen(id)
+            if client_functions.listen(args.id):
 
-        confirmation = input('confirm downvote [Y/N]?')
+                confirmation = input('confirm downvote [Y/N]?')
 
-        if confirmation == 'Y' or confirmation == 'y':
-            client_functions.downvote(id)
+                if confirmation == 'Y' or confirmation == 'y':
+                    client_functions.create_downvote(args.id)
+
+        else:
+            client_functions.create_downvote(args.id)
 
 
 elif args.operation == 'upload':
@@ -90,4 +98,4 @@ elif args.operation == 'upload':
         print('--path or -p not supplied')
 
     else:
-        client_functions.playlist_add(args.name, args.filename)
+        client_functions.playlist_add(args.name, args.path)

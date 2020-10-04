@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 # SERVE DETAILS
 HOST = '192.168.29.229'
 PORT = 8080
@@ -11,3 +14,6 @@ EXCHANGE_SIZE = 1024
 
 # allowed extensions for music files
 ALLOWED_EXTENSIONS = ['.mp3', '.wav', ]
+
+# file storage folder
+STORAGE = os.path.join(Path(__file__).resolve().parent, 'music')

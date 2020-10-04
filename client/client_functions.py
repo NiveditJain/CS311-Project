@@ -91,13 +91,13 @@ def listen(id):
 
         if flag == flags.NONE:
             print('no music found at this ID')
-            return
+            return False
 
-        elif flag == flags.SUCCSESS:
+        elif flag == flags.SUCCESS:
             filename = client.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip()
 
-            filename = os.path.join('temp',filename)
-            music_file = open(filename, 'wb')
+            filename = os.path.join(settings.STORAGE, filename)
+            music_file = open(filename, "wb")
 
             data = client.recv(settings.EXCHANGE_SIZE)
             while data:
@@ -105,5 +105,11 @@ def listen(id):
                 data = client.recv(settings.EXCHANGE_SIZE)
             music_file.close()
 
-            playsound(filename)
+            try:
+                print('started playing file ..  to stop press ctrl + c')
+                playsound(filename)
+            except KeyboardInterrupt:
+                pass
+
             os.remove(filename)
+            return True

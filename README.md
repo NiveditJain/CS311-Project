@@ -114,6 +114,7 @@ Go to settings.py from client folder and make necessary settings make sure that 
 ## How to Use?
 
 ## Working
+![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/base.png)
 
 ## Contributors
 + [Nivedit Jain](https://github.com/NiveditJain) (B18CSE039)

@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-op', '--operation',
                     required=True,
                     choices=('upload', 'list', 'playing',
-                             'downvote', 'upvote'),
+                             'downvote', 'upvote', 'local_play'),
                     action='store',
                     help='selects the operation to perform')
 
@@ -31,7 +31,7 @@ parser.add_argument('-p', '--path', required=False,
                     help='path of music file to upload')
 
 args = parser.parse_args()
-print(args)
+
 
 if args.operation == 'list':
     data = client_functions.get_playlist()
@@ -99,3 +99,10 @@ elif args.operation == 'upload':
 
     else:
         client_functions.playlist_add(args.name, args.path)
+
+elif args.operation == 'local_play':
+    if args.id is None:
+        print('-id must be supplied to play')
+
+    else:
+        client_functions.listen(args.id)

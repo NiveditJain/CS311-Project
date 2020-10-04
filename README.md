@@ -12,17 +12,16 @@
 The story begins with around 8 friends sitting in a hostel room of
 IIT-Jodhpur, trying to find some ideas for a Hackathon (which 
 eventually was cancelled) and fighting for whose music to play.
-Solution? lets Vote. <br>
-This project aims to serve this use-case. <br>
+Solution? lets Vote. This project aims to serve this use-case. <br><br>
 People connected over the same local network can connect to
 it and add their favourite music to the server, 
 vote (Upvote/Downvote) for the music they like/dislike,
-can listen to music from server to there local devices and Paaarrrty! (; <br>
+can listen to music from server to their devices and Paaarrrty! <br><br>
 This project also aims to replace small DJs usually in small parties,
 with a microcontroller-based local area server running on IPv4 and
 connected to large speakers. Giving people in the party democratic
 control over music using their mobile phones or any other device 
-which could be connected to the private local area network.<br>
+which could be connected to the private local area network.
 
 ### Current Features
 

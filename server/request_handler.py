@@ -13,10 +13,11 @@ def start_music_player():
         music_obj = music.playlist.get_next()
         if music_obj is not None:
             path = os.path.join(settings.STORAGE, music_obj.filename)
-            print(f'Playing... {music_obj.name} from {path}')
+            print(f'Playing... {music_obj.name} from {path} with value {music_obj.get_value()}')
             playsound(path)
             music.playlist.clean_music()
-
+        else:
+            time.sleep(10)
 
 thread = threading.Thread(target=start_music_player)
 thread.start()
@@ -39,6 +40,8 @@ def object_create(connection, address):
     while data:
         music_file.write(data)
         data = connection.recv(settings.EXCHANGE_SIZE)
+    music_file.close()
+
     print(f'file ({file_name}) created success from {address}')
 
     music_obj = music.Music(file_name, name)
@@ -81,7 +84,31 @@ def send_list(connection, address):
 
 
 def send_file(connection, address):
-    pass
+    print(f'requested file from {address}')
+
+    filename = None
+    id = int(connection.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip())
+
+    for music_objs in music.playlist.music_objs:
+        if music_objs.id == id:
+            filename = music_objs.filename
+            break
+
+    if filename is None:
+        connection.send(flags.NONE)
+    else:
+        connection.send(flags.SUCCESS)
+
+        connection.send(filename.encode('utf-8') + b' '*(settings.EXCHANGE_SIZE - len(filename.encode('utf-8'))))
+        filename = os.path.join(settings.STORAGE, filename)
+        file = open(filename, 'rb')
+        data = file.read(settings.EXCHANGE_SIZE)
+
+        while data:
+            connection.send(data)
+            data = file.read(settings.EXCHANGE_SIZE)
+
+        file.close()
 
 
 def send_playing(connection, address):
@@ -121,8 +148,5 @@ def gate_way(connection, address):
 
     elif flag == flags.PLAYING:
         send_playing(connection, address)
-
-    elif flag == flags.DISCONNECT:
-        pass
 
     connection.close()

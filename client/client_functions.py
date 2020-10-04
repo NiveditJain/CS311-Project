@@ -4,6 +4,7 @@ import settings
 import utils
 import os
 import pickle
+from playsound import playsound
 
 ADDR = (settings.HOST, settings.PORT)
 
@@ -32,6 +33,8 @@ def playlist_add(name, filename):
         while data:
             client.send(data)
             data = file.read(settings.EXCHANGE_SIZE)
+
+        file.close()
 
     return True
 
@@ -77,7 +80,29 @@ def create_downvote(id):
         client.send(utils.padded_message(str(id).encode('utf-8')))
 
 
-if __name__ == '__main__':
-    print(playlist_add('music', 'music\music.mp3'))
-    print(get_playlist())
-    create_upvote(2)
+def listen(id):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+        client.connect(ADDR)
+        client.send(flags.LISTEN)
+
+        client.send(utils.padded_message(str(id).encode('utf-8')))
+
+        flag = client.recv(flags.SIZE)
+
+        if flag == flags.NONE:
+            print('no music found at this ID')
+            return
+
+        elif flag == flags.SUCCSESS:
+            filename = client.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip()
+
+            music_file = open(os.path.join('temp',filename), 'wb')
+
+            data = client.recv(settings.EXCHANGE_SIZE)
+            while data:
+                music_file.write(data)
+                data = client.recv(settings.EXCHANGE_SIZE)
+            music_file.close()
+
+            playsound(os.path.join('temp',filename))
+            

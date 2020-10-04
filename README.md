@@ -108,6 +108,11 @@ On successful start you should get something like <br>
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/server_success.png)
 Please note the address on which server is running you need to enter it in client files. Ours is running on 192.168.29.229:8080 (highlighted in red).
 
+### Setting Clients
+Go to settings.py from client folder and make necessary settings make sure that EXHANGE_SIZE must have same value for all clients and server
+
+## How to Use?
+
 ## Working
 
 ## Contributors

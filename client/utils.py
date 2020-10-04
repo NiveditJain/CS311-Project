@@ -25,4 +25,3 @@ def verify_file(filename):
 
 def padded_message(message, length=settings.EXCHANGE_SIZE, padding_char = b' '):
     return message + padding_char*(length - len(message))
-    

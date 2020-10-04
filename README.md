@@ -109,7 +109,9 @@ On successful start you should get something like <br>
 Please note the address on which server is running you need to enter it in client files. Ours is running on 192.168.29.229:8080 (highlighted in red).
 
 ### Setting Clients
-Go to settings.py from client folder and make necessary settings make sure that EXHANGE_SIZE must have same value for all clients and server
+Go to settings.py from client folder and make necessary settings make sure that EXCHANGE_SIZE must have same value for all clients and server. Also make sure that you have entered correct address of the server in settings.py (client).
+<br>
+We are now ready to start the clients!
 
 ## How to Use?
 

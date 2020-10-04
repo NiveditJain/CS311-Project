@@ -32,12 +32,12 @@ class Music:
 
 class Vote:
 
-    def __int__(self, upvote=True):
-        self.upvote = upvote
+    def __init__(self, typ):
+        self.upvote = typ
 
     def value(self):
         if self.upvote:
-            return settings.UVOTE_VALUE
+            return settings.UPVOTE_VALUE
         else:
             return -settings.DOWNVOTE_VALUE
 

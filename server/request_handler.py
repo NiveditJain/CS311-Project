@@ -31,7 +31,7 @@ def object_create(connection, address):
     file_name = connection.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip()
     print(f'file name received {file_name} from {address}')
 
-    file_name = file_name.split('.')[0]+'_'+str(int(time.time())%10000)+'.'+file_name.split('.')[1]
+    file_name = file_name.split('.')[0] + '_' + str(int(time.time()) % 10000) + '.' + file_name.split('.')[1]
     music_file = open(os.path.join(settings.STORAGE, file_name), "wb")
     print(f'file ({file_name}) download started from {address}')
 
@@ -49,6 +49,10 @@ def object_create(connection, address):
 # type = 1 for upvote
 # type = -1 for downvote
 def handle_votes(connection, address, upvote):
+    if upvote:
+        print(f'requested to upvote from {address}')
+    else:
+        print(f'requested to upvote from {address}')
 
     id = int(connection.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip())
     vote = music.Vote(upvote)
@@ -81,6 +85,7 @@ def send_file(connection, address):
 
 
 def send_playing(connection, address):
+    print(f'Request for playing from {address}')
 
     if music.playlist.playing is None:
         data = flags.NONE

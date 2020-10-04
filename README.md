@@ -23,9 +23,74 @@ connected to large speakers. Giving people in the party democratic
 control over music using their mobile phones or any other device 
 which could be connected to the private local area network.
 
-### Current Features
+## Current Features
+
+### AutoPlay 
+Server mains a playlist of song in present instance and automatically
+plays the highest priority song, priority decided by weight of 
+upvote and downvote.
+
+### Upload Song
+Connected clients can add there song to the playlist.
+
+### Upvote Song
+Connected clients can upvote the song(s) which they like.
+
+### Downvote Song
+Connected clients can downvote the song(s) which they dislike.
+
+### Playlist
+Connected clients can view playlist
+
+### Local Plat
+Connected clients can play a song from server on there local machine.
 
 ## Getting Started
+
+### Get Code
+Download (clone code) from this repository and add Sever and Client folders to Server and Client machines respectively.
+
+### Install Python 3.7.4
+On all client machines and server machine install Python 3.7.4. Install from [here](https://www.python.org/downloads/release/python-374/)
+
+### Install pip
+for windows machines <br>
+`python get-pip.py`
+
+for mac/linux <br>
+`python3 get-pip.py`
+
+### Upgrade pip
+for windows use <br>
+`pip install --upgrade pip`
+
+for mac/linux <br>
+`pip2 install --upgrade pip3`
+
+### Install Dependencies
+for windows run <br>
+`pip install -r requirements.txt`
+
+for mac/linux <br>
+`pip3 install -r requirements.txt`
+
+make sure that requirements.txt is in your working directory.
+
+### Setting Server
+Go to settings.py file inside server (folder) and set all the variables are per requirements, make sure that EXCHANGE_SIZE has same value for server and all clients.
+
+### Running Server
+Go to directory where you saved server folder and run
+
+for windows run <br>
+`python server`
+
+for mac/linux <br>
+`python3 server`
+
+On successful start you should get something like <br>
+![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/server_success.png)
+Please note the address on which server is running you need to enter it in client files. Ours is running on 192.168.29.229:8080 (highlighted in red).
 
 ## Working
 

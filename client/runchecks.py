@@ -2,8 +2,6 @@
 import settings
 import warnings
 
-print('Running SETTING Checks!')
-
 if type(settings.PORT) is not int:
     raise Exception('settings.PORT must be an integer')
 
@@ -37,5 +35,3 @@ if type(settings.EXCHANGE_SIZE) is not int:
 
 if settings.EXCHANGE_SIZE < 0:
     raise Exception('settings.EXCHANGE_SIZE must be positive')
-
-print('All SETTINGS Checked!')

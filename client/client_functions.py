@@ -96,7 +96,8 @@ def listen(id):
         elif flag == flags.SUCCSESS:
             filename = client.recv(settings.EXCHANGE_SIZE).decode('utf-8').strip()
 
-            music_file = open(os.path.join('temp',filename), 'wb')
+            filename = os.path.join('temp',filename)
+            music_file = open(filename, 'wb')
 
             data = client.recv(settings.EXCHANGE_SIZE)
             while data:
@@ -104,4 +105,5 @@ def listen(id):
                 data = client.recv(settings.EXCHANGE_SIZE)
             music_file.close()
 
-            playsound(os.path.join('temp',filename))
+            playsound(filename)
+            os.remove(filename)

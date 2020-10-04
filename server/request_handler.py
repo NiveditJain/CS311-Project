@@ -77,7 +77,22 @@ def send_list(connection, address):
 
 
 def send_file(connection, address):
-    pass:
+    pass
+
+
+def send_playing(connection, address):
+
+    if music.playlist.playing is None:
+        data = flags.NONE
+
+    else:
+        data = music.playlist.playing.name.encode('utf-8')
+
+    print(f'sending playing name to {address}')
+    size = str(len(data)).encode('utf-8')
+    size = size + b' ' * (settings.EXCHANGE_SIZE - len(size))
+    connection.send(size)
+    connection.send(data)
 
 
 def gate_way(connection, address):
@@ -98,6 +113,9 @@ def gate_way(connection, address):
 
     elif flag == flags.LISTEN:
         send_file(connection, address)
+
+    elif flag == flags.PLAYING:
+        send_playing(connection, address)
 
     elif flag == flags.DISCONNECT:
         pass

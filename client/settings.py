@@ -2,8 +2,12 @@
 HOST = '192.168.29.229'
 PORT = 8080
 
-# chunk size (in Bytes)
-CHUNK_SIZE = 4096
+# maximum size per file allowed (in Bytes)
+# 10 MB = 10*1024*1024 Bytes
+MAX_FILE_SIZE = 10485760
 
 # message exchange size
 EXCHANGE_SIZE = 1024
+
+# allowed extensions for music files
+ALLOWED_EXTENSIONS = ['.mp3', '.wav', ]

@@ -4,10 +4,6 @@ import os
 # Port
 PORT = 8080
 
-# maximum size per file allowed (in Bytes)
-# 10 MB = 10*1024*1024 Bytes
-MAX_FILE_SIZE = 10485760
-
 # message exchange size
 EXCHANGE_SIZE = 1024
 

@@ -55,24 +55,36 @@ On all client machines and server machine install Python 3.7.4. Install from [he
 
 ### Install pip
 for windows machines <br>
-```python get-pip.py```
+```
+python get-pip.py
+```
 
 for mac/linux <br>
-```python3 get-pip.py```
+```
+python3 get-pip.py
+```
 
 ### Upgrade pip
 for windows use <br>
-```pip install --upgrade pip```
+```
+pip install --upgrade pip
+```
 
 for mac/linux <br>
-```pip2 install --upgrade pip3```
+```
+pip2 install --upgrade pip3
+```
 
 ### Install Dependencies
 for windows run <br>
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 for mac/linux <br>
-```pip3 install -r requirements.txt```
+```
+pip3 install -r requirements.txt
+```
 
 make sure that requirements.txt is in your working directory.
 
@@ -83,10 +95,14 @@ Go to settings.py file inside server (folder) and set all the variables are per 
 Go to directory where you saved server folder and run
 
 for windows run <br>
-```python server```
+```
+python server
+```
 
 for mac/linux <br>
-```python3 server```
+```
+python3 server
+```
 
 On successful start you should get something like <br>
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/server_success.png)

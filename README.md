@@ -136,8 +136,8 @@ python client -op/--operation upload -n/--name [music name] -p/--path [file path
 **Note :** / denotes or, you can use any one of the flag to specify the parameters. <br>
 It will upload the file your music to the server <br>
 
---n/--name is required, denotes the name for your music <br>
--p/--path is required, denotes the file path of file on your system <br>
+`--n/--name` is required, denotes the name for your music <br>
+`-p/--path` is required, denotes the file path of file on your system <br>
 
 ### List
 displays you a list of songs in current playlist, in the format (Name - id - value)
@@ -156,25 +156,61 @@ will play the song on your local machine, getting file from the server
 ```
 python client -op/--operation local_playing -id/--id [song id from list]
 ```
--id/--id is required, denotes the id of song to play, get id using the list feature
+`-id/--id` is required, denotes the id of song to play, get id using the list feature
 
 ### Upvote
 to upvote a song use 
 ```
 python client -op/--operation upvote -id/--id [song id to upload]
 ```
--id/--id is required <br>
-to play the song before upload add the flag -l/--listen
+`-id/--id` is required <br>
+to play the song before upload add the flag `-l/--listen`
 ```
 python client -op/--operation upvote -id/--id -l/--listen
 ```
-it will play the song on your local machine till you press ctrl + c (cmd + c)
+it will play the song on your local machine till you press `ctrl + c (cmd + c)`
 
 ### Downvote
-all working same as upvote just replace upvote to downvote all the commands
+all working same as upvote just replace upvote to downvote all the commands,eg,
+```
+python client -op/--operation downvote -id/--id [song id to upload]
+```
 
 ## Working
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/base.png)
+
+## Code 
+
+### server
+#### Directory structure
+```
+server
+|___ __main__.py
+|___ flags.py
+|___ music.py
+|___ request_handler.py
+|___ runchecks.py
+|___ settings.py
+|___ setup.py
+|
+    
+```
+
+### client
+#### Directory structure
+```
+server
+|___ __main__.py
+|___ flags.py
+|___ client_functions.py
+|___ runchecks.py
+|___ settings.py
+|___ setup.py
+|___ utils.py
+|
+    
+```
+
 
 ## Contributors
 + [Nivedit Jain](https://github.com/NiveditJain) (B18CSE039)

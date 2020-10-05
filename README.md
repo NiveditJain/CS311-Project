@@ -42,7 +42,7 @@ Connected clients can downvote the song(s) which they dislike.
 ### Playlist
 Connected clients can view playlist
 
-### Local Plat
+### Local Play
 Connected clients can play a song from server on there local machine.
 
 ## Getting Started

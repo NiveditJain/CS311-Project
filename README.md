@@ -193,14 +193,16 @@ Flags Presently in use,
 | $FLAG:09 | LISTEN |
 
 ### Upload
-![Upload Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/1.png)
+![Upload Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/1.jpg)
 
 ### Upvote/Downvote
-![Upvote Downvote Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/2.png)
+![Upvote Downvote Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/2.jpg)
 
 ### Playing/List
-![Playing List Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/3.png)
+![Playing List Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/3.jpg)
 
+### Listen
+![Listen Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/4.jpg)
 
 ## Code 
 

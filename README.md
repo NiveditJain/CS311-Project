@@ -192,6 +192,16 @@ Flags Presently in use,
 | $FLAG:06 | NONE |
 | $FLAG:09 | LISTEN |
 
+### Upload
+![Upload Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/1.png)
+
+### Upvote/Downvote
+![Upvote Downvote Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/2.png)
+
+### Playing/List
+![Playing List Working](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/3.png)
+
+
 ## Code 
 
 ### Server

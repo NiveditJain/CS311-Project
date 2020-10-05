@@ -177,7 +177,20 @@ python client -op/--operation downvote -id/--id [song id to upload]
 ```
 
 ## Working
+For each communication client sends a appropriate flag to server, which fires related communication functions in both server and client.
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/base.png)
+Flags Presently in use,
+| Flag | Used for indicate |
+| :--: | :---------------: |
+| $FLAG:00 | DISCONNECT |
+| $FLAG:01 | CREATE_OBJ |
+| $FLAG:02 | CREATE_UPVOTE |
+| $FLAG:03 | CREATE_DOWNVOTE |
+| $FLAG:04 | GET_LIST |
+| $FLAG:05 | SUCCESS |
+| $FLAG:08 | PLAYING |
+| $FLAG:06 | NONE |
+| $FLAG:09 | LISTEN |
 
 ## Code 
 

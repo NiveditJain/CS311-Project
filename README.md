@@ -114,6 +114,20 @@ Go to settings.py from client folder and make necessary settings make sure that 
 We are now ready to start the clients!
 
 ## How to Use?
+We have made a complete linux styled CLI. Mak sure to run these commands after completing all the above setups and starting server. Also ensure you are running these commands in directory where client folder is placed.<br>
+**Note** We are writing here commands for Windows for Linux or Mac just replace python with python3 
+
+### Help 
+```
+python client --help
+```
+or 
+```
+python client -h
+```
+This will will be there to help you, you can run it anytime, it should show you
+![Help](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/help.png)
+
 
 ## Working
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/base.png)

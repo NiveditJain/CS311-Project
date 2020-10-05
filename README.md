@@ -181,7 +181,7 @@ python client -op/--operation downvote -id/--id [song id to upload]
 
 ## Code 
 
-### server
+### Server
 #### Directory structure
 ```
 server
@@ -195,9 +195,19 @@ server
 |
     
 ```
-### Dependencies and Responsibilities
+#### Dependencies and Responsibilities
+| File | Responsibility | Dependent on |
+| :--: | :------------: | :----------: |
+| settings.py | allow user to make necessary settings | |
+| runchecks.py | checks that all settings are proper | settings.py |
+| setup.py | make necessary setups | settings.py |
+| flags.py | contains all necessary flags | |
+| music.py | contains Music and Playlist Class and running playlist | settings.py |
+| request_handler.py | handles all communications and plays the appropriate song | flags.py, settings.py, music.py, playsound |
+| __main__.py | starts server, fires all triggers and handles threading for requests | runchecks.py, setup.py, settings.py, request_handler.py |
 
-### client
+
+### Client
 #### Directory structure
 ```
 client

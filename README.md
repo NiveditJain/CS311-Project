@@ -240,6 +240,6 @@ client
 
 ### Note
 + This project was started at [IIT-Jodhpur](http://iitj.ac.in/) under guidance of [Dr. Ravi Bhandari](https://www.linkedin.com/in/ravi-bhandari-b1172415/) as course project for CS311-Data Communication, Pre-Final Year, BTech Computer Science and Engineering, Trimester 1 (September - November 2020).
-+ We would be further looking to make this a complete working product, to contribute or join us, please main on [jain.22@iitj.ac.in](mailto:jain.22@iitj.ac.in)
++ We would be further looking to make this a complete working product, to contribute or join us, please send an email on [jain.22@iitj.ac.in](mailto:jain.22@iitj.ac.in)
 + <a href="https://raw.githubusercontent.com/NiveditJain/muZik/master/files/beamed_note.png">Beamed Note Symbol</a> on our diagram, does not belongs to any institute or organization.
 + All our images in this ReadMe are made from free images collections from [Canva](https://www.canva.com/)

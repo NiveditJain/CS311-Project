@@ -222,6 +222,15 @@ client
     
 ```
 ### Dependencies and Responsibilities
+| File | Responsibility | Dependent on |
+| :--: | :------------: | :----------: |
+| settings.py | allow user to make necessary settings | |
+| runchecks.py | checks that all settings are proper | settings.py |
+| setup.py | make necessary setups | settings.py |
+| flags.py | contains all necessary flags | |
+| utils.py | provide some additional functionality features | settings.py |
+| client_functions.py | handles all communications for client | flags.py, settings.py, utils.py, playsound |
+| __main__.py | provide CLI interface and start all features| runchecks.py, setup.py, client_functions.py |
 
 
 

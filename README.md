@@ -72,7 +72,7 @@ pip install --upgrade pip
 
 for mac/linux <br>
 ```
-pip2 install --upgrade pip3
+pip3 install --upgrade pip3
 ```
 
 ### Install Dependencies

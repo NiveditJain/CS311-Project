@@ -37,7 +37,7 @@ if args.operation == 'list':
     data = client_functions.get_playlist()
 
     if len(data) != 0:
-        print('Name - id - votes')
+        print('Name - id - value')
         for element in data:
             print(f'{element[0]} - {element[1]} - {element[2]}')
 

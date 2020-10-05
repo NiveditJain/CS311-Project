@@ -115,7 +115,7 @@ We are now ready to start the clients!
 
 ## How to Use?
 We have made a complete linux styled CLI. Mak sure to run these commands after completing all the above setups and starting server. Also ensure you are running these commands in directory where client folder is placed.<br>
-**Note** We are writing here commands for Windows for Linux or Mac just replace python with python3 
+**Note :** We are writing here commands for Windows for Linux or Mac just replace python with python3, all things would work same like any other CLI interface.
 
 ### Help 
 ```
@@ -128,6 +128,50 @@ python client -h
 This will will be there to help you, you can run it anytime, it should show you
 ![Help](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/help.png)
 
+### Upload 
+use to upload file to the server
+```
+python client -op/--operation upload -n/--name [music name] -p/--path [file path]
+```
+**Note :** / denotes or, you can use any one of the flag to specify the parameters. <br>
+It will upload the file your music to the server <br>
+
+--n/--name is required, denotes the name for your music <br>
+-p/--path is required, denotes the file path of file on your system <br>
+
+### List
+displays you a list of songs in current playlist, in the format (Name - id - value)
+```
+python client -op/--operation list
+```
+
+### Playing
+will get you the name of song which is currently being played
+```
+python client -op/--operation playing
+```
+
+### Local Play
+will play the song on your local machine, getting file from the server
+```
+python client -op/--operation local_playing -id/--id [song id from list]
+```
+-id/--id is required, denotes the id of song to play, get id using the list feature
+
+### Upvote
+to upvote a song use 
+```
+python client -op/--operation upvote -id/--id [song id to upload]
+```
+-id/--id is required <br>
+to play the song before upload add the flag -l/--listen
+```
+python client -op/--operation upvote -id/--id -l/--listen
+```
+it will play the song on your local machine till you press ctrl + c (cmd + c)
+
+### Downvote
+all working same as upvote just replace upvote to downvote all the commands
 
 ## Working
 ![Sever Success](https://raw.githubusercontent.com/NiveditJain/muZik/master/files/base.png)

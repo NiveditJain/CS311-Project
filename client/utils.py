@@ -11,8 +11,12 @@ def verify_file(filename):
         print('ALLOWED_EXTENSIONS are ' + str(settings.ALLOWED_EXTENSIONS))
         return False
 
+    if not os.path.exists(filename):
+        print(f'{filename} do not exists')
+        return False
+
     if not os.path.isfile(filename):
-        print(f'{filename} not found or not a valid file!')
+        print(f'{filename} not a valid file!')
         return False
 
     file_size = os.path.getsize(filename)
